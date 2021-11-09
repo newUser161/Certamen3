@@ -1,54 +1,45 @@
-<ul ngbNav [(activeId)]="activeId" class="nav-tabs">
-    <li [ngbNavItem]="1">
-      <span><a ngbNavLink>Inicio</a></span>
-    </li>
-    <li [ngbNavItem]="2">
-      <a ngbNavLink>Galeria</a>
-    </li>
-    <li [ngbNavItem]="3">
-      <a ngbNavLink>Contacto</a>
-    </li>
-  </ul>
-  Active = {{activeId}}
-<div *ngIf="activeId == 2">
-    <ul>
-        <li *ngFor="let item of fotos">          
-            <img src="../../assets/{{item.ruta}}" alt="{{item.nombre}}" width="200px">}
-        </li>   
-    </ul>
-</div>
-<div *ngIf="activeId==1">Bienvenida</div>
-
-<div *ngIf="activeId==3">
-  <div *ngIf="!estado">
-     <form [formGroup]="formulario" (ngSubmit)="validacion()" novalidate>
-     <ul>
-        <li>
-         <label>Nombre Completo</label>
-         <input type="text" formControlName="nombre" placeholder="Nombre Completo" >
-        
-         <div *ngIf="formulario.controls['nombre'].invalid && (formulario.controls['nombre'].dirty || formulario.controls['nombre'].touched)" class="alert alert-danger">
-             <div *ngIf="formulario.controls['nombre'].hasError('required')">
-               * Nombre obligatorio
-             </div> 
-             <div *ngIf="formulario.controls['nombre'].hasError('maxlength')">
-               * Tamaño máximo de 10
-             </div>  
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <span>iconoPersona</span>
+      <h1>Clientes</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">      
+      <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
+        <li [ngbNavItem]="1">
+          <a ngbNavLink>Vista Card</a>  
+        </li>
+        <li [ngbNavItem]="2">
+          <a ngbNavLink>Lista</a>    
+        </li>        
+        <li [ngbNavItem]="2">
+          <span>IconoMas</span>
+          <button>Adicionar</button>
+        </li>        
+      </ul>            
+      <div [ngbNavOutlet]="nav" class="mt-2"></div>
+    </div>    
+  </div>
+  <div class="row" *ngIf="active == 1">
+    <div class="col">
+      <div class="card mb-3" style="max-width: 540px;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="..." class="img-fluid rounded-start" alt="ImagenUsuario">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+          </div>
         </div>
-       </li>
-       <li>
-         <label>Asunto</label>
-         <input type="text" formControlName="asunto" placeholder="Asunto">
-       </li>
-       <li>
-         <label>Comentarios</label>
-         <textarea formControlName="comentarios" cols="10" rows="10"></textarea>
-       </li>
-       <li><button type="submit" [disabled]="formulario.invalid">Enviar</button></li>
-       </ul>
-    </form>
-   </div>
-   <div *ngIf="estado">
-        Mensaje enviado
-   </div>
+      </div>
+
+
+    </div>
+  </div>
 </div>
