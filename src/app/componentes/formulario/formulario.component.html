@@ -2,7 +2,7 @@
 <div class="container">
     <section class="row formulario">
         <div class="col">
-            <form autocomplete="off" [formGroup]="miFormulario" (ngSubmit)="guardar()">
+            <form autocomplete="off" [formGroup]="miFormulario" (ngSubmit)="guardar()" novalidate>
 
                 <!-- Nombres -->
                 <div class="mb-3 row">
@@ -47,7 +47,7 @@
                     <div class="col-sm-9">
                         <select class="form-control"
                                 formControlName="genero">
-                            <option value="">Seleccione un genero</option>
+                            <option disabled value="">Seleccione un genero</option>
                             <option value="M">Masculino</option>
                             <option value="F">Femenino</option>
                             <option value="O">Otro</option>

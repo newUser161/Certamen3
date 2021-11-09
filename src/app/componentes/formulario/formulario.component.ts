@@ -1,5 +1,7 @@
+import { ListKeyManager } from '@angular/cdk/a11y';
 import { Component, OnInit } from '@angular/core';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {Personas, ListaPersonas} from '../../interfaces/personas';
 
 @Component({
   selector: 'app-formulario',
@@ -8,15 +10,11 @@ import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angula
 })
 export class FormularioComponent implements OnInit {
 
-  miFormulario: FormGroup = this.fb.group({
-    nombres: ['', [Validators.required, Validators.minLength(3), Validators.pattern('[a-zA-Z ]*')]],
-    apellidos: ['', [Validators.required, Validators.minLength(2), Validators.pattern('[a-zA-Z ]*')]],
-    genero: ['', Validators.required],
-    ciudad: ['', [Validators.required, Validators.minLength(3), Validators.pattern('[a-zA-Z ]*')]],
-    })
-
+  miFormulario: FormGroup;
+  nuevaPersona: Personas;  
   campoEsValido (field:string) {
-    return this.miFormulario.get(field).invalid && this.miFormulario.get(field).touched;
+    return false;
+    //return this.miFormulario.get(field).invalid && this.miFormulario.get(field).touched;
   }
 
   // VALIDACIONES EXTRA
@@ -44,7 +42,15 @@ export class FormularioComponent implements OnInit {
   }
 
 
-  constructor(private fb: FormBuilder) { }
+  constructor(public fb: FormBuilder) {
+    this.miFormulario = this.fb.group({
+      nombres: ['', [Validators.required, Validators.minLength(3), Validators.pattern('[a-zA-Z ]*')]],
+      apellidos: ['', [Validators.required, Validators.minLength(2), Validators.pattern('[a-zA-Z ]*')]],
+      genero: ['', Validators.required],
+      pais: ['', Validators.required],
+      ciudad: ['', [Validators.required, Validators.minLength(3), Validators.pattern('[a-zA-Z ]*')]],
+      });
+   }
 
   ngOnInit(): void {
   }
@@ -54,7 +60,14 @@ export class FormularioComponent implements OnInit {
       this.miFormulario.markAllAsTouched();
       return;
     }
-    console.log(this.miFormulario);
+    this.nuevaPersona = {
+      id: ListaPersonas.length + 1,
+      nombre: this.miFormulario.get("nombres").value +' '+this.miFormulario.get("apellidos").value,
+      genero: this.miFormulario.get("genero").value,
+      pais: this.miFormulario.get("pais").value,
+      ciudad: this.miFormulario.get("ciudad").value
+    }
+    console.log(this.nuevaPersona);
   }
 
   cancelar(){
