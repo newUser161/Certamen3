@@ -1,0 +1,37 @@
+<div class="container-fluid">
+  <div class="container">
+    <div class="row">
+      <div class="col headerClientes">
+        <span>
+          <img src="../../../assets/mujer.png" class="img-fluid rounded-start" alt="ImagenUsuario">
+        </span>
+        <h1>Clientes</h1>
+      </div>
+    </div>
+
+    <div class="row" id="agenda">
+      <div class="col nav">      
+        <ul ngbNav #nav="ngbNav" class="nav-tabs">
+          <li [ngbNavItem]="1">
+            <span class="material-icons"> menu </span>
+            <a ngbNavLink>Vista Card</a>  
+          </li>
+          
+          <li [ngbNavItem]="2">
+            <span class="material-icons"> menu </span>
+            <a ngbNavLink [routerLink]="['/list-clientes']">Vista Lista</a>
+          </li>
+
+          <li [ngbNavItem]="3">
+            <span class="material-icons"> add_circle_outline </span> 
+            <a ngbNavLink [routerLink]="['/add-cliente']">Agregar Cliente</a>
+          </li>
+        </ul>            
+        <div [ngbNavOutlet]="nav" class="mt-2"></div>
+      </div>
+    </div>
+  </div>
+  <div class="content col-md-11 col-12 h-100">
+    <router-outlet></router-outlet>
+  </div>
+</div>
