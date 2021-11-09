@@ -1,17 +1,21 @@
 <div class="container">
   <div class="row">
-    <div class="col">
-      <span>iconoPersona</span>
+    <div class="col headerClientes">
+      <span>
+        <img src="../../../assets/mujer.png" class="img-fluid rounded-start" alt="ImagenUsuario">
+      </span>
       <h1>Clientes</h1>
     </div>
   </div>
   <div class="row">
-    <div class="col">      
+    <div class="col nav">      
       <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
         <li [ngbNavItem]="1">
+          <span class="material-icons"> menu </span>
           <a ngbNavLink>Vista Card</a>  
         </li>
         <li [ngbNavItem]="2">
+          <span class="material-icons"> menu </span>
           <a ngbNavLink>Lista</a>    
         </li>        
         <li [ngbNavItem]="2">
@@ -22,7 +26,7 @@
       <div [ngbNavOutlet]="nav" class="mt-2"></div>
     </div>    
   </div>
-  <div class="row" *ngIf="active == 1">    
+  <div class="row cards" *ngIf="active == 1">    
     <div *ngFor="let personas of listaPersonas" class="col">      
       <div class="card mb-3" style="max-width: 540px;">
         <div class="row g-0">
