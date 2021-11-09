@@ -1,3 +1,13 @@
+.container-fluid{
+    background-color: #FBAB7E;
+    background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
+}
+.container{
+    background-color: #FBAB7E;
+    background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
+    box-shadow: inset 0 0 2000px rgba(255, 255, 255, .5);    
+}
+
 .headerClientes{
     img{
         width: 10%;
@@ -7,21 +17,45 @@
         position: relative;
         top: 30%;
     }
+    margin: 2% 0 2% 0;
 }
 
-.nav{
-    li{
-        
+.nav{   
+    box-shadow: inset 0 0 2000px rgba(255, 255, 255, .5);    
+    width: 100%; 
+    
+    ul{
+        padding-left: 3%;
+        li{
+            width: 15%;                            
+        }
     }
     span{
         position: relative;
         top: 15%;
-        float: left;
-    }
-}
-
-.cards{
-    img{
+        right: 3%;
+        float: left;       
+        padding-left: 10%; 
         
     }
+    margin: 0 0 2% 0;
+    button{
+        width: 13%;        
+        span{
+            top: 5%;
+        }
+    }
+
+}
+
+.card{
+    border: 5px solid black;
+    img{
+        margin: 10%;
+    }
+    .card-body{
+        margin-top: 5%;
+    }
+    background-color: rgba(255, 255, 255, .15);  
+    backdrop-filter: blur(5px);
 }

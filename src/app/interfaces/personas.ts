@@ -30,5 +30,11 @@ export let ListaPersonas:Array<Personas> = [
         genero: 1,
         lugar: "Chile, Valparaiso"
     },
+    {
+        id: 4,
+        nombre: "Pepe Grillo",
+        genero: 0,
+        lugar: "Chile, Valparaiso"
+    },
 
 ];
