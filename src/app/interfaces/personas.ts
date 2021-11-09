@@ -1,40 +1,46 @@
 export interface Personas {
     id: number;
     nombre: string;
-    genero: number;
-    lugar: string;
+    genero: string;
+    pais: string;
+    ciudad: string;
 }
 
 export let ListaPersonas:Array<Personas> = [
     {
         id: 0,
         nombre: "Pepita Cruz",
-        genero: 1,
-        lugar: "Chile, Valparaiso"
+        genero: "Mujer",
+        pais: "Chile",
+        ciudad: "Valparaíso"
     },
     {
         id: 1,
         nombre: "Juan Totto",
-        genero: 0,
-        lugar: "Chile, Metropolitana"
+        genero: "Hombre",
+        pais: "Chile",
+        ciudad: "Metropolitana"
     },
     {
         id: 2,
         nombre: "Pedro Tijuana",
-        genero: 1,
-        lugar: "Chile, Metropolitana"
+        genero: "Hombre",
+        pais: "Chile",
+        ciudad: "Metropolitana"
     },
     {
         id: 3,
         nombre: "Juana de Arco",
-        genero: 1,
-        lugar: "Chile, Valparaiso"
+        genero: "Mujer",
+        pais: "Chile",
+        ciudad: "Valparaíso"
     },
     {
         id: 4,
         nombre: "Pepe Grillo",
-        genero: 0,
-        lugar: "Chile, Valparaiso"
+        genero: "Hombre",
+        pais: "Chile",
+        ciudad: "Valparaíso"
     },
 
 ];

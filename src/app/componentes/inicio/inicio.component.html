@@ -33,18 +33,39 @@
         <div class="card mb-3" style="max-width: 840px;">
           <div class="row g-0">
             <div class="col-md-4">
-              <img *ngIf="personas.genero == 0" src="../../../assets/hombre.png" class="img-fluid rounded-start" alt="ImagenUsuario">
-              <img *ngIf="personas.genero == 1" src="../../../assets/mujer.png" class="img-fluid rounded-start" alt="ImagenUsuario">
+              <img *ngIf="personas.genero == 'Hombre'" src="../../../assets/hombre.png" class="img-fluid rounded-start" alt="ImagenUsuario">
+              <img *ngIf="personas.genero == 'Mujer'" src="../../../assets/mujer.png" class="img-fluid rounded-start" alt="ImagenUsuario">
             </div>
             <div class="col-md-8">
               <div class="card-body">
                 <h5 class="card-title">{{personas.nombre}}</h5>
-                <p class="card-text">{{personas.lugar}}</p>              
+                <p class="card-text">{{personas.pais}}, {{personas.ciudad}}</p>              
               </div>
             </div>
           </div>        
         </div>
       </div>
+    </div>
+    <div class="row cards" *ngIf="active == 2">    
+      <table class="table table-striped">
+        <thead>
+        <tr>          
+          <th scope="col">Nombre Completo</th>
+          <th scope="col">Género</th>
+          <th scope="col">País</th>
+          <th scope="col">Ciudad</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let personas of listaPersonas; index as i">
+                    
+          <td>{{ personas.nombre}}</td>
+          <td>{{ personas.genero}}</td>
+          <td>{{ personas.pais}}</td>
+          <td>{{ personas.ciudad}}</td>
+        </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>
