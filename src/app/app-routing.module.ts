@@ -4,7 +4,6 @@ import {InicioComponent} from '../app/componentes/inicio/inicio.component';
 
 const routes: Routes = [
   {path:"", component:InicioComponent},
-
 ];
 
 @NgModule({

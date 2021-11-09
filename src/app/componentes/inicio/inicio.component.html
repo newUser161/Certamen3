@@ -18,12 +18,11 @@
           <li [ngbNavItem]="2">
             <span class="material-icons"> menu </span>
             <a ngbNavLink>Lista</a>    
-          </li>                  
-          <button type="button" class="btn btn-light">
-            <span class="material-icons"> add_circle_outline </span> 
-            Adicionar
-          </button>   
-          
+          </li>   
+          <li [ngbNavItem]="3">                           
+            <span class="material-icons"> add_circle_outline </span>                            
+            <a ngbNavLink>Adicionar</a>     
+          </li>             
         </ul>            
         <div [ngbNavOutlet]="nav" class="mt-2"></div>
       </div>    
@@ -57,7 +56,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let personas of listaPersonas; index as i">
+        <tr *ngFor="let personas of listaPersonas">
                     
           <td>{{ personas.nombre}}</td>
           <td>{{ personas.genero}}</td>
@@ -66,6 +65,9 @@
         </tr>
         </tbody>
       </table>
+    </div>
+    <div class="row" *ngIf="active == 3">          
+      <app-formulario></app-formulario>
     </div>
   </div>
 </div>
