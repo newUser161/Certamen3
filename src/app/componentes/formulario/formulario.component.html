@@ -1,0 +1,120 @@
+
+<div class="container">
+    <section class="row formulario">
+        <div class="col">
+            <form autocomplete="off" [formGroup]="miFormulario" (ngSubmit)="guardar()">
+
+                <!-- Nombres -->
+                <div class="mb-3 row">
+                    <label class="col-sm-3 col-form-label">Nombres</label>
+                    <div class="col-sm-9">
+                        <input class="form-control"
+                                formControlName="nombres"
+                                placeholder="Ingrese sus nombres">
+                            <span class="form-text text-danger"
+                                *ngIf="campoEsValido('nombre')">
+                                Obligatorio, inserte su nombre
+                            </span>
+                            <span class="form-text text-danger"
+                                *ngIf="validarNombres()">
+                                Debe ingresar al menos 3 caracteres
+                            </span>
+                        
+                    </div>
+                </div>
+
+                <!-- Apellidos -->
+                <div class="mb-3 row">
+                    <label class="col-sm-3 col-form-label">Apellidos</label>
+                    <div class="col-sm-9">
+                        <input class="form-control"
+                                formControlName="apellidos"
+                                placeholder="Ingrese sus apellidos">
+                            <span class="form-text text-danger"
+                                *ngIf="campoEsValido('apellido')">
+                                Obligatorio, inserte sus apellidos
+                            </span>
+                            <span class="form-text text-danger"
+                                *ngIf="validarApellidos()">
+                                Debe ingresar dos apellidos
+                            </span>
+                    </div>
+                </div>
+
+                <!--genero select-->
+                <div class="mb-3 row">
+                    <label class="col-sm-3 col-form-label">Genero</label>
+                    <div class="col-sm-9">
+                        <select class="form-control"
+                                formControlName="genero">
+                            <option value="">Seleccione un genero</option>
+                            <option value="M">Masculino</option>
+                            <option value="F">Femenino</option>
+                            <option value="O">Otro</option>
+                        </select>
+                        <span class="form-text text-danger"
+                            *ngIf="campoEsValido('genero')">
+                            Obligatorio, seleccione un genero
+                        </span>
+                    </div>
+                </div>
+
+                <!-- seleccionar país -->
+                <div class="mb-3 row">
+                    <label class="col-sm-3 col-form-label">País</label>
+                    <div class="col-sm-9">
+                        <select class="form-control"
+                                formControlName="pais">
+                            <option value="">Seleccione un país</option>
+                            <option value="AR">Argentina</option>
+                            <option value="BR">Brasil</option>
+                            <option value="CO">Colombia</option>
+                            <option value="CL">Chile</option>
+                            <option value="MX">México</option>
+                            <option value="PE">Perú</option>
+                        </select>
+                        <span class="form-text text-danger"
+                            *ngIf="campoEsValido('pais')">
+                            Obligatorio, seleccione un país
+                        </span>
+                    </div>
+                </div>
+
+                <!-- input ciudad -->
+                <div class="mb-3 row">
+                    <label class="col-sm-3 col-form-label">Ciudad</label>
+                    <div class="col-sm-9">
+                        <input class="form-control"
+                                formControlName="ciudad"
+                                placeholder="Ingrese su ciudad">
+                            <span class="form-text text-danger"
+                                *ngIf="campoEsValido('ciudad')">
+                                Obligatorio, inserte su ciudad
+                            </span>
+                    </div>
+                </div>
+
+                <!-- botones cancelar y crear -->
+                <div class="row">
+                    <div class="col-sm-3"></div>
+                    <div class="col-sm-9">
+                        <button class="btn btn-primary"
+                                type="button"
+                                (click)="guardar()">
+                            Crear
+                        </button>
+                        <button class="btn btn-danger"
+                                type="button"
+                                (click)="cancelar()">
+                            Cancelar
+                        </button>
+                    </div>
+                </div>
+
+                
+
+            </form>
+                
+        </div>
+    </section>
+</div>
