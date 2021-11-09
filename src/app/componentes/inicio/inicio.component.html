@@ -15,28 +15,28 @@
           <a ngbNavLink>Lista</a>    
         </li>        
         <li [ngbNavItem]="2">
-          <span>IconoMas</span>
-          <button>Adicionar</button>
+          <span class="material-icons"> add_circle_outline </span> 
+          <button type="button" class="btn btn-light">Adicionar</button>   
         </li>        
       </ul>            
       <div [ngbNavOutlet]="nav" class="mt-2"></div>
     </div>    
   </div>
-  <div class="row" *ngIf="active == 1">
-    <div class="col">
+  <div class="row" *ngIf="active == 1">    
+    <div *ngFor="let personas of listaPersonas" class="col">      
       <div class="card mb-3" style="max-width: 540px;">
         <div class="row g-0">
           <div class="col-md-4">
-            <img src="..." class="img-fluid rounded-start" alt="ImagenUsuario">
+            <img *ngIf="personas.genero == 0" src="../../../assets/hombre.png" class="img-fluid rounded-start" alt="ImagenUsuario">
+            <img *ngIf="personas.genero == 1" src="../../../assets/mujer.png" class="img-fluid rounded-start" alt="ImagenUsuario">
           </div>
           <div class="col-md-8">
             <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+              <h5 class="card-title">{{personas.nombre}}</h5>
+              <p class="card-text">{{personas.lugar}}</p>              
             </div>
           </div>
-        </div>
+        </div>        
       </div>
 
 

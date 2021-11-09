@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {Personas, ListaPersonas} from '../../interfaces/personas';
 
 @Component({
   selector: 'app-inicio',
@@ -9,6 +10,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 export class InicioComponent implements OnInit {
 
   active=1;
+  listaPersonas = ListaPersonas;
 
   
   formulario:FormGroup;
