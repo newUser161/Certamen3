@@ -12,6 +12,7 @@ import {ServicioFormularioService} from '../../servicios/servicio-formulario.ser
 export class AgregarClienteComponent implements OnInit {
 
   miFormulario: FormGroup;
+  nuevaPersona: Personas;  
  
 
   // VALIDACIONES EXTRA
@@ -39,7 +40,7 @@ export class AgregarClienteComponent implements OnInit {
   }
 
 
-  constructor(public fb: FormBuilder) {
+  constructor(public fb: FormBuilder, public servicio:ServicioFormularioService) {
     this.miFormulario = this.fb.group({
       nombres: ['', [Validators.required, Validators.minLength(3), Validators.pattern('[a-zA-Z ]*')]],
       apellidos: ['', [Validators.required, Validators.minLength(2), Validators.pattern('[a-zA-Z ]*')]],
@@ -56,28 +57,22 @@ export class AgregarClienteComponent implements OnInit {
     if (this.miFormulario.invalid) {
       this.miFormulario.markAllAsTouched();
       return;
-    } else {
-      let nombres = this.miFormulario.get('nombres').value;
-      let apellidos = this.miFormulario.get('apellidos').value;
-      let genero = this.miFormulario.get('genero').value;
-      let pais = this.miFormulario.get('pais').value;
-      let ciudad = this.miFormulario.get('ciudad').value;
-      
-      let nuevaPersona : Personas = {
-        id: ListaPersonas.length + 1,
-        nombre: nombres,
-        apellido: apellidos,
-        genero: genero,
-        pais: pais,
-        ciudad: ciudad
-      }
-      ListaPersonas.push(nuevaPersona);
-
     }
-
+    this.nuevaPersona = {
+      id: ListaPersonas.length + 1,
+      nombre: this.miFormulario.get("nombres").value,
+      apellido: this.miFormulario.get("apellidos").value,
+      genero: this.miFormulario.get("genero").value,
+      pais: this.miFormulario.get("pais").value,
+      ciudad: this.miFormulario.get("ciudad").value
+    }
+    console.log(this.nuevaPersona);
+    this.servicio.enviarDatos(this.nuevaPersona);
+    alert('Persona agregada exitosamente!');
   }
 
   cancelar(){
     this.miFormulario.reset();
   }
+
 }
