@@ -1,0 +1,19 @@
+<div class="cards row">
+    <div *ngFor="let personas of listaPersonas" class="col-6">      
+        <div class="card mb-3" style="max-width: 840px;">
+        <div class="row g-0">
+            <div class="col-md-4">
+            <img *ngIf="personas.genero == 'Hombre'" src="../../../assets/hombre.png" class="img-fluid rounded-start" alt="ImagenUsuario">
+            <img *ngIf="personas.genero == 'Mujer'" src="../../../assets/mujer.png" class="img-fluid rounded-start" alt="ImagenUsuario">
+            <img *ngIf="personas.genero == 'Otro' " src="../../../assets/other.png" class="img-fluid rounded-start" alt="ImagenUsuario">
+            </div>
+            <div class="col-md-8">
+            <div class="card-body">
+                <h5 class="card-title">{{personas.nombre}} {{personas.apellido}}</h5>
+                <p class="card-text">{{personas.pais}}, {{personas.ciudad}}</p>              
+            </div>
+            </div>
+        </div>        
+        </div>
+    </div>
+</div>

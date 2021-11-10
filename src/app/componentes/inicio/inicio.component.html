@@ -1,5 +1,6 @@
 <div class="container-fluid">
   <div class="container">
+
     <div class="row">
       <div class="col headerClientes">
         <span>
@@ -8,6 +9,7 @@
         <h1>Clientes</h1>
       </div>
     </div>
+
     <div class="row">
       <div class="col nav">      
         <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
@@ -18,56 +20,25 @@
           <li [ngbNavItem]="2">
             <span class="material-icons"> menu </span>
             <a ngbNavLink>Lista</a>    
-          </li>   
-          <li [ngbNavItem]="3">                           
-            <span class="material-icons"> add_circle_outline </span>                            
-            <a ngbNavLink>Adicionar</a>     
-          </li>             
+          </li> 
+          <li [ngbNavItem]="3">
+            <span class="material-icons"> add_circle_outline </span> 
+            <a ngbNavLink>Adicionar</a>    
+          </li>                          
+          
         </ul>            
         <div [ngbNavOutlet]="nav" class="mt-2"></div>
       </div>    
     </div>
-    <div class="row cards" *ngIf="active == 1">    
-      <div *ngFor="let personas of listaPersonas" class="col-6">      
-        <div class="card mb-3" style="max-width: 840px;">
-          <div class="row g-0">
-            <div class="col-md-4">
-              <img *ngIf="personas.genero == 'Hombre'" src="../../../assets/hombre.png" class="img-fluid rounded-start" alt="ImagenUsuario">
-              <img *ngIf="personas.genero == 'Mujer'" src="../../../assets/mujer.png" class="img-fluid rounded-start" alt="ImagenUsuario">
-            </div>
-            <div class="col-md-8">
-              <div class="card-body">
-                <h5 class="card-title">{{personas.nombre}}</h5>
-                <p class="card-text">{{personas.pais}}, {{personas.ciudad}}</p>              
-              </div>
-            </div>
-          </div>        
-        </div>
-      </div>
+    
+    <div *ngIf="active == 1">    
+      <app-cards-clientes></app-cards-clientes>
     </div>
-    <div class="row cards" *ngIf="active == 2">    
-      <table class="table table-striped">
-        <thead>
-        <tr>          
-          <th scope="col">Nombre Completo</th>
-          <th scope="col">Género</th>
-          <th scope="col">País</th>
-          <th scope="col">Ciudad</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr *ngFor="let personas of listaPersonas">
-                    
-          <td>{{ personas.nombre}}</td>
-          <td>{{ personas.genero}}</td>
-          <td>{{ personas.pais}}</td>
-          <td>{{ personas.ciudad}}</td>
-        </tr>
-        </tbody>
-      </table>
+    <div *ngIf="active == 2">    
+      <app-listar-clientes></app-listar-clientes>
     </div>
-    <div class="row" *ngIf="active == 3">          
-      <app-formulario></app-formulario>
+    <div *ngIf="active == 3">    
+      <app-agregar-cliente></app-agregar-cliente>
     </div>
   </div>
 </div>

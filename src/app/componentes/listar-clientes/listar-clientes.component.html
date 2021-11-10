@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row cards">
+    <table class="table table-striped">
+      <thead>
+      <tr>          
+        <th scope="col">Nombre Completo</th>
+        <th scope="col">Género</th>
+        <th scope="col">País</th>
+        <th scope="col">Ciudad</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let personas of listaPersonas; index as i">
+                  
+        <td>{{ personas.nombre}} {{ personas.apellido}}</td>
+        <td>{{ personas.genero}}</td>
+        <td>{{ personas.pais}}</td>
+        <td>{{ personas.ciudad}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

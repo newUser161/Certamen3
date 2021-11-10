@@ -1,21 +1,18 @@
-import { ListKeyManager } from '@angular/cdk/a11y';
 import { Component, OnInit } from '@angular/core';
-import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import {Personas, ListaPersonas} from '../../interfaces/personas';
+import { FormGroup, Validators } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
+import { Personas, ListaPersonas } from '../../interfaces/personas';
+import {ServicioFormularioService} from '../../servicios/servicio-formulario.service';
 
 @Component({
-  selector: 'app-formulario',
-  templateUrl: './formulario.component.html',
-  styleUrls: ['./formulario.component.scss']
+  selector: 'app-agregar-cliente',
+  templateUrl: './agregar-cliente.component.html',
+  styleUrls: ['./agregar-cliente.component.scss']
 })
-export class FormularioComponent implements OnInit {
+export class AgregarClienteComponent implements OnInit {
 
   miFormulario: FormGroup;
-  nuevaPersona: Personas;  
-  campoEsValido (field:string) {
-    return false;
-    //return this.miFormulario.get(field).invalid && this.miFormulario.get(field).touched;
-  }
+ 
 
   // VALIDACIONES EXTRA
 
@@ -50,7 +47,7 @@ export class FormularioComponent implements OnInit {
       pais: ['', Validators.required],
       ciudad: ['', [Validators.required, Validators.minLength(3), Validators.pattern('[a-zA-Z ]*')]],
       });
-   }
+  }
 
   ngOnInit(): void {
   }
@@ -59,19 +56,30 @@ export class FormularioComponent implements OnInit {
     if (this.miFormulario.invalid) {
       this.miFormulario.markAllAsTouched();
       return;
+    } else {
+      let nombres = this.miFormulario.get('nombres').value;
+      let apellidos = this.miFormulario.get('apellidos').value;
+      let genero = this.miFormulario.get('genero').value;
+      let pais = this.miFormulario.get('pais').value;
+      let ciudad = this.miFormulario.get('ciudad').value;
+      
+      let nuevaPersona : Personas = {
+        id: ListaPersonas.length + 1,
+        nombre: nombres,
+        apellido: apellidos,
+        genero: genero,
+        pais: pais,
+        ciudad: ciudad
+      }
+      ListaPersonas.push(nuevaPersona);
+      alert('Persona agregada exitosamente!');
     }
-    this.nuevaPersona = {
-      id: ListaPersonas.length + 1,
-      nombre: this.miFormulario.get("nombres").value +' '+this.miFormulario.get("apellidos").value,
-      genero: this.miFormulario.get("genero").value,
-      pais: this.miFormulario.get("pais").value,
-      ciudad: this.miFormulario.get("ciudad").value
-    }
-    console.log(this.nuevaPersona);
+
+    // show 
+
   }
 
   cancelar(){
     this.miFormulario.reset();
   }
-
 }

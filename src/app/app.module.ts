@@ -8,7 +8,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {ReactiveFormsModule} from '@angular/forms';
 import {MatIconModule} from '@angular/material/icon';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormularioComponent } from './componentes/formulario/formulario.component'; 
+import { AgregarClienteComponent } from './componentes/agregar-cliente/agregar-cliente.component';
+import { ListarClientesComponent } from './componentes/listar-clientes/listar-clientes.component';
+import { CardsClientesComponent } from './componentes/cards-clientes/cards-clientes.component'; 
 
 
 
@@ -17,7 +19,9 @@ import { FormularioComponent } from './componentes/formulario/formulario.compone
   declarations: [
     AppComponent,
     InicioComponent,
-    FormularioComponent,
+    AgregarClienteComponent,
+    ListarClientesComponent,
+    CardsClientesComponent,
     
   ],
   imports: [
