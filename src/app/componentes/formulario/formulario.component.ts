@@ -2,6 +2,7 @@ import { ListKeyManager } from '@angular/cdk/a11y';
 import { Component, OnInit } from '@angular/core';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {Personas, ListaPersonas} from '../../interfaces/personas';
+import {ServicioFormularioService} from '../../servicios/servicio-formulario.service';
 
 @Component({
   selector: 'app-formulario',
@@ -13,8 +14,10 @@ export class FormularioComponent implements OnInit {
   miFormulario: FormGroup;
   nuevaPersona: Personas;  
   campoEsValido (field:string) {
-    return false;
-    //return this.miFormulario.get(field).invalid && this.miFormulario.get(field).touched;
+    
+
+    
+   // return this.miFormulario.get(field).invalid //|| this.miFormulario.get(field).touched;
   }
 
   // VALIDACIONES EXTRA
@@ -42,7 +45,7 @@ export class FormularioComponent implements OnInit {
   }
 
 
-  constructor(public fb: FormBuilder) {
+  constructor(public fb: FormBuilder, public servicio:ServicioFormularioService) {
     this.miFormulario = this.fb.group({
       nombres: ['', [Validators.required, Validators.minLength(3), Validators.pattern('[a-zA-Z ]*')]],
       apellidos: ['', [Validators.required, Validators.minLength(2), Validators.pattern('[a-zA-Z ]*')]],
@@ -62,12 +65,14 @@ export class FormularioComponent implements OnInit {
     }
     this.nuevaPersona = {
       id: ListaPersonas.length + 1,
-      nombre: this.miFormulario.get("nombres").value +' '+this.miFormulario.get("apellidos").value,
+      nombre: this.miFormulario.get("nombres").value,
+      apellido: this.miFormulario.get("apellidos").value,
       genero: this.miFormulario.get("genero").value,
       pais: this.miFormulario.get("pais").value,
       ciudad: this.miFormulario.get("ciudad").value
     }
     console.log(this.nuevaPersona);
+    this.servicio.enviarDatos(this.nuevaPersona)
   }
 
   cancelar(){

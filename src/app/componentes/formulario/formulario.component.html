@@ -11,14 +11,14 @@
                         <input class="form-control"
                                 formControlName="nombres"
                                 placeholder="Ingrese sus nombres">
-                            <span class="form-text text-danger"
-                                *ngIf="campoEsValido('nombre')">
-                                Obligatorio, inserte su nombre
-                            </span>
-                            <span class="form-text text-danger"
-                                *ngIf="validarNombres()">
-                                Debe ingresar al menos 3 caracteres
-                            </span>
+                                <div *ngIf="miFormulario.controls['nombres'].invalid && (miFormulario.controls['nombres'].dirty || miFormulario.controls['nombres'].touched)" class="alert alert-danger">
+                                    <div *ngIf="miFormulario.controls['nombres'].hasError('required')">
+                                        <span>* Campo obligatorio</span>
+                                    </div>                             
+                                    <div *ngIf="(miFormulario.controls['nombres'].dirty) || (validarNombres() == false)">
+                                        <span>* Campo invalido</span>
+                                    </div>
+                                </div>
                         
                     </div>
                 </div>
@@ -30,14 +30,14 @@
                         <input class="form-control"
                                 formControlName="apellidos"
                                 placeholder="Ingrese sus apellidos">
-                            <span class="form-text text-danger"
-                                *ngIf="campoEsValido('apellido')">
-                                Obligatorio, inserte sus apellidos
-                            </span>
-                            <span class="form-text text-danger"
-                                *ngIf="validarApellidos()">
-                                Debe ingresar dos apellidos
-                            </span>
+                                <div *ngIf="miFormulario.controls['apellidos'].invalid && (miFormulario.controls['apellidos'].dirty || miFormulario.controls['apellidos'].touched)" class="alert alert-danger">
+                                    <div *ngIf="miFormulario.controls['apellidos'].hasError('required')">
+                                        <span>* Campo obligatorio</span>
+                                    </div>                             
+                                    <div *ngIf="(miFormulario.controls['apellidos'].dirty) || (validarApellidos() == false)">
+                                        <span>* Campo invalido</span>
+                                    </div>
+                                </div>                            
                     </div>
                 </div>
 
@@ -46,16 +46,19 @@
                     <label class="col-sm-3 col-form-label">Genero</label>
                     <div class="col-sm-9">
                         <select class="form-control"
+                                placeholder="Seleccione un género"
                                 formControlName="genero">
-                            <option disabled value="">Seleccione un genero</option>
+                            <option disabled selected  value="">Seleccione un género</option>
                             <option value="M">Masculino</option>
                             <option value="F">Femenino</option>
                             <option value="O">Otro</option>
                         </select>
-                        <span class="form-text text-danger"
-                            *ngIf="campoEsValido('genero')">
-                            Obligatorio, seleccione un genero
-                        </span>
+                        <div *ngIf="miFormulario.controls['genero'].invalid && (miFormulario.controls['genero'].dirty || miFormulario.controls['genero'].touched)" class="alert alert-danger">
+                            <div *ngIf="miFormulario.controls['genero'].hasError('required')">
+                                <span>* Campo obligatorio</span>
+                            </div> 
+                            
+                        </div>
                     </div>
                 </div>
 
@@ -64,8 +67,9 @@
                     <label class="col-sm-3 col-form-label">País</label>
                     <div class="col-sm-9">
                         <select class="form-control"
+                                placeholder="Seleccione un país"
                                 formControlName="pais">
-                            <option value="">Seleccione un país</option>
+                            <option disabled selected value="">Seleccione un país</option>
                             <option value="AR">Argentina</option>
                             <option value="BR">Brasil</option>
                             <option value="CO">Colombia</option>
@@ -73,10 +77,12 @@
                             <option value="MX">México</option>
                             <option value="PE">Perú</option>
                         </select>
-                        <span class="form-text text-danger"
-                            *ngIf="campoEsValido('pais')">
-                            Obligatorio, seleccione un país
-                        </span>
+                        <div *ngIf="miFormulario.controls['pais'].invalid && (miFormulario.controls['pais'].dirty || miFormulario.controls['pais'].touched)" class="alert alert-danger">
+                            <div *ngIf="miFormulario.controls['pais'].hasError('required')">
+                                <span>* Campo obligatorio</span>
+                            </div> 
+                            
+                        </div>
                     </div>
                 </div>
 
@@ -87,10 +93,12 @@
                         <input class="form-control"
                                 formControlName="ciudad"
                                 placeholder="Ingrese su ciudad">
-                            <span class="form-text text-danger"
-                                *ngIf="campoEsValido('ciudad')">
-                                Obligatorio, inserte su ciudad
-                            </span>
+                        <div *ngIf="miFormulario.controls['ciudad'].invalid && (miFormulario.controls['ciudad'].dirty || miFormulario.controls['ciudad'].touched)" class="alert alert-danger">
+                            <div *ngIf="miFormulario.controls['ciudad'].hasError('required')">
+                                <span>* Campo obligatorio</span>
+                            </div>                             
+                        </div>
+                            
                     </div>
                 </div>
 
