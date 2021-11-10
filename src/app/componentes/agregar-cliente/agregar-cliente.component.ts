@@ -72,8 +72,10 @@ export class AgregarClienteComponent implements OnInit {
         ciudad: ciudad
       }
       ListaPersonas.push(nuevaPersona);
-
+      alert('Persona agregada exitosamente!');
     }
+
+    // show 
 
   }
 
