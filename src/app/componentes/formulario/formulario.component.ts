@@ -52,8 +52,8 @@ export class FormularioComponent implements OnInit {
       genero: ['', Validators.required],
       pais: ['', Validators.required],
       ciudad: ['', [Validators.required, Validators.minLength(3), Validators.pattern('[a-zA-Z ]*')]],
-      });
-   }
+    });
+  } 
 
   ngOnInit(): void {
   }
@@ -72,7 +72,7 @@ export class FormularioComponent implements OnInit {
       ciudad: this.miFormulario.get("ciudad").value
     }
     console.log(this.nuevaPersona);
-    this.servicio.enviarDatos(this.nuevaPersona)
+    this.servicio.enviarDatos(this.nuevaPersona);
   }
 
   cancelar(){

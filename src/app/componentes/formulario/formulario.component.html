@@ -41,26 +41,42 @@
                     </div>
                 </div>
 
-                <!--genero select-->
+                <!-- genero -->
                 <div class="mb-3 row">
                     <label class="col-sm-3 col-form-label">Genero</label>
                     <div class="col-sm-9">
-                        <select class="form-control"
-                                placeholder="Seleccione un género"
-                                formControlName="genero">
-                            <option disabled selected  value="">Seleccione un género</option>
-                            <option value="M">Masculino</option>
-                            <option value="F">Femenino</option>
-                            <option value="O">Otro</option>
-                        </select>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input"
+                                    type="radio"
+                                    name="genero"
+                                    formControlName="genero"
+                                    value="Hombre">
+                            <label class="form-check-label">Hombre</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input"
+                                    type="radio"
+                                    name="genero"
+                                    formControlName="genero"
+                                    value="Mujer">
+                            <label class="form-check-label">Mujer</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input"
+                                    type="radio"
+                                    name="genero"
+                                    formControlName="genero"
+                                    value="Otro">
+                            <label class="form-check-label">Otro</label>
+                        </div>
                         <div *ngIf="miFormulario.controls['genero'].invalid && (miFormulario.controls['genero'].dirty || miFormulario.controls['genero'].touched)" class="alert alert-danger">
                             <div *ngIf="miFormulario.controls['genero'].hasError('required')">
                                 <span>* Campo obligatorio</span>
-                            </div> 
-                            
+                            </div>                             
                         </div>
                     </div>
-                </div>
+                </div>         
+
 
                 <!-- seleccionar país -->
                 <div class="mb-3 row">
@@ -70,12 +86,12 @@
                                 placeholder="Seleccione un país"
                                 formControlName="pais">
                             <option disabled selected value="">Seleccione un país</option>
-                            <option value="AR">Argentina</option>
-                            <option value="BR">Brasil</option>
-                            <option value="CO">Colombia</option>
-                            <option value="CL">Chile</option>
-                            <option value="MX">México</option>
-                            <option value="PE">Perú</option>
+                            <option value="Argentina">Argentina</option>
+                            <option value="Brasil">Brasil</option>
+                            <option value="Colombia">Colombia</option>
+                            <option value="Chile">Chile</option>
+                            <option value="Mexico">México</option>
+                            <option value="Perú">Perú</option>
                         </select>
                         <div *ngIf="miFormulario.controls['pais'].invalid && (miFormulario.controls['pais'].dirty || miFormulario.controls['pais'].touched)" class="alert alert-danger">
                             <div *ngIf="miFormulario.controls['pais'].hasError('required')">
@@ -117,9 +133,7 @@
                             Cancelar
                         </button>
                     </div>
-                </div>
-
-                
+                </div>             
 
             </form>
                 
