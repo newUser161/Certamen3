@@ -1,0 +1,128 @@
+
+<div class="container">
+    <section class="row formulario">
+        <div class="col">
+            <form autocomplete="off" [formGroup]="miFormulario" (ngSubmit)="guardar()" novalidate>
+
+                <!-- Nombres -->
+                <div class="mb-3 row">
+                    <label class="col-sm-3 col-form-label">Nombres</label>
+                    <div class="col-sm-9">
+                        <input class="form-control"
+                                formControlName="nombres"
+                                placeholder="Ingrese sus nombres">
+                                <div *ngIf="miFormulario.controls['nombres'].invalid && (miFormulario.controls['nombres'].dirty || miFormulario.controls['nombres'].touched)" class="alert alert-danger">
+                                    <div *ngIf="miFormulario.controls['nombres'].hasError('required')">
+                                        <span>* Campo obligatorio</span>
+                                    </div>                             
+                                    <div *ngIf="(miFormulario.controls['nombres'].dirty) || (validarNombres() == false)">
+                                        <span>* Campo invalido</span>
+                                    </div>
+                                </div>
+                        
+                    </div>
+                </div>
+
+                <!-- Apellidos -->
+                <div class="mb-3 row">
+                    <label class="col-sm-3 col-form-label">Apellidos</label>
+                    <div class="col-sm-9">
+                        <input class="form-control"
+                                formControlName="apellidos"
+                                placeholder="Ingrese sus apellidos">
+                                <div *ngIf="miFormulario.controls['apellidos'].invalid && (miFormulario.controls['apellidos'].dirty || miFormulario.controls['apellidos'].touched)" class="alert alert-danger">
+                                    <div *ngIf="miFormulario.controls['apellidos'].hasError('required')">
+                                        <span>* Campo obligatorio</span>
+                                    </div>                             
+                                    <div *ngIf="(miFormulario.controls['apellidos'].dirty) || (validarApellidos() == false)">
+                                        <span>* Campo invalido</span>
+                                    </div>
+                                </div>                            
+                    </div>
+                </div>
+
+                <!--genero select-->
+                <div class="mb-3 row">
+                    <label class="col-sm-3 col-form-label">Genero</label>
+                    <div class="col-sm-9">
+                        <select class="form-control"
+                                placeholder="Seleccione un género"
+                                formControlName="genero">
+                            <option disabled selected  value="">Seleccione un género</option>
+                            <option value="M">Masculino</option>
+                            <option value="F">Femenino</option>
+                            <option value="O">Otro</option>
+                        </select>
+                        <div *ngIf="miFormulario.controls['genero'].invalid && (miFormulario.controls['genero'].dirty || miFormulario.controls['genero'].touched)" class="alert alert-danger">
+                            <div *ngIf="miFormulario.controls['genero'].hasError('required')">
+                                <span>* Campo obligatorio</span>
+                            </div> 
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- seleccionar país -->
+                <div class="mb-3 row">
+                    <label class="col-sm-3 col-form-label">País</label>
+                    <div class="col-sm-9">
+                        <select class="form-control"
+                                placeholder="Seleccione un país"
+                                formControlName="pais">
+                            <option disabled selected value="">Seleccione un país</option>
+                            <option value="AR">Argentina</option>
+                            <option value="BR">Brasil</option>
+                            <option value="CO">Colombia</option>
+                            <option value="CL">Chile</option>
+                            <option value="MX">México</option>
+                            <option value="PE">Perú</option>
+                        </select>
+                        <div *ngIf="miFormulario.controls['pais'].invalid && (miFormulario.controls['pais'].dirty || miFormulario.controls['pais'].touched)" class="alert alert-danger">
+                            <div *ngIf="miFormulario.controls['pais'].hasError('required')">
+                                <span>* Campo obligatorio</span>
+                            </div> 
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- input ciudad -->
+                <div class="mb-3 row">
+                    <label class="col-sm-3 col-form-label">Ciudad</label>
+                    <div class="col-sm-9">
+                        <input class="form-control"
+                                formControlName="ciudad"
+                                placeholder="Ingrese su ciudad">
+                        <div *ngIf="miFormulario.controls['ciudad'].invalid && (miFormulario.controls['ciudad'].dirty || miFormulario.controls['ciudad'].touched)" class="alert alert-danger">
+                            <div *ngIf="miFormulario.controls['ciudad'].hasError('required')">
+                                <span>* Campo obligatorio</span>
+                            </div>                             
+                        </div>
+                            
+                    </div>
+                </div>
+
+                <!-- botones cancelar y crear -->
+                <div class="row">
+                    <div class="col-sm-3"></div>
+                    <div class="col-sm-9">
+                        <button class="btn btn-primary"
+                                type="button"
+                                (click)="guardar()">
+                            Crear
+                        </button>
+                        <button class="btn btn-danger"
+                                type="button"
+                                (click)="cancelar()">
+                            Cancelar
+                        </button>
+                    </div>
+                </div>
+
+                
+
+            </form>
+                
+        </div>
+    </section>
+</div>

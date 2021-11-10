@@ -20,12 +20,11 @@
           <li [ngbNavItem]="2">
             <span class="material-icons"> menu </span>
             <a ngbNavLink>Lista</a>    
-          </li>                  
-          <button type="button" class="btn btn-light">
-            <span class="material-icons"> add_circle_outline </span> 
-            Adicionar
-          </button>   
-          
+          </li>   
+          <li [ngbNavItem]="3">                           
+            <span class="material-icons"> add_circle_outline </span>                            
+            <a ngbNavLink>Adicionar</a>     
+          </li>             
         </ul>            
         <div [ngbNavOutlet]="nav" class="mt-2"></div>
       </div>    
@@ -36,12 +35,12 @@
         <div class="card mb-3" style="max-width: 840px;">
           <div class="row g-0">
             <div class="col-md-4">
-              <img *ngIf="personas.genero == 'Hombre'" src="../../../assets/hombre.png" class="img-fluid rounded-start" alt="ImagenUsuario">
-              <img *ngIf="personas.genero == 'Mujer'" src="../../../assets/mujer.png" class="img-fluid rounded-start" alt="ImagenUsuario">
+              <img *ngIf="personas.genero == 'H'" src="../../../assets/hombre.png" class="img-fluid rounded-start" alt="ImagenUsuario">
+              <img *ngIf="personas.genero == 'M'" src="../../../assets/mujer.png" class="img-fluid rounded-start" alt="ImagenUsuario">
             </div>
             <div class="col-md-8">
               <div class="card-body">
-                <h5 class="card-title">{{personas.nombre}}</h5>
+                <h5 class="card-title">{{personas.nombre}} {{personas.apellido}}</h5>
                 <p class="card-text">{{personas.pais}}, {{personas.ciudad}}</p>              
               </div>
             </div>
@@ -60,15 +59,18 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let personas of listaPersonas; index as i">
+        <tr *ngFor="let personas of listaPersonas">
                     
-          <td>{{ personas.nombre}}</td>
+          <td>{{ personas.nombre}} {{ personas.apellido}}</td>
           <td>{{ personas.genero}}</td>
           <td>{{ personas.pais}}</td>
           <td>{{ personas.ciudad}}</td>
         </tr>
         </tbody>
       </table>
+    </div>
+    <div class="row" *ngIf="active == 3">          
+      <app-formulario></app-formulario>
     </div>
   </div>
 </div>
