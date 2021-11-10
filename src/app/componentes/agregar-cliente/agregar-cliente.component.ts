@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
 import { Personas, ListaPersonas } from '../../interfaces/personas';
+import {ServicioFormularioService} from '../../servicios/servicio-formulario.service';
 
 @Component({
   selector: 'app-agregar-cliente',
@@ -11,11 +12,7 @@ import { Personas, ListaPersonas } from '../../interfaces/personas';
 export class AgregarClienteComponent implements OnInit {
 
   miFormulario: FormGroup;
-  nuevaPersona: any;  
-  campoEsValido (field:string) {
-    return false;
-    //return this.miFormulario.get(field).invalid && this.miFormulario.get(field).touched;
-  }
+ 
 
   // VALIDACIONES EXTRA
 
@@ -66,17 +63,16 @@ export class AgregarClienteComponent implements OnInit {
       let pais = this.miFormulario.get('pais').value;
       let ciudad = this.miFormulario.get('ciudad').value;
       
-      let nuevoCliente: Personas = {
+      let nuevaPersona : Personas = {
+        id: ListaPersonas.length + 1,
         nombre: nombres,
         apellido: apellidos,
         genero: genero,
         pais: pais,
         ciudad: ciudad
       }
-      ListaPersonas.push(nuevoCliente);
+      ListaPersonas.push(nuevaPersona);
 
-      let guardar: any = document.getElementById('guardar');
-      // guardar.disabled = true;
     }
 
   }

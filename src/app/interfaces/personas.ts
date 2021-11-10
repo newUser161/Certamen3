@@ -1,4 +1,5 @@
 export interface Personas {
+    id: number;
     nombre: string;
     apellido: string;
     genero: string;
@@ -8,6 +9,7 @@ export interface Personas {
 
 export let ListaPersonas:Array<Personas> = [
     {
+        id: 0,
         nombre: "Pepita",
         apellido: "Cruz",
         genero: "Mujer",
@@ -15,6 +17,7 @@ export let ListaPersonas:Array<Personas> = [
         ciudad: "Valparaíso"
     },
     {
+        id: 1,
         nombre: "Juan",
         apellido: "Totto",
         genero: "Hombre",
@@ -22,6 +25,7 @@ export let ListaPersonas:Array<Personas> = [
         ciudad: "Metropolitana"
     },
     {
+        id: 2,
         nombre: "Pedro",
         apellido: "Tijuana",
         genero: "Hombre",
@@ -29,6 +33,7 @@ export let ListaPersonas:Array<Personas> = [
         ciudad: "Metropolitana"
     },
     {
+        id: 3,
         nombre: "Juana",
         apellido: "de Arco",
         genero: "Mujer",
@@ -36,6 +41,7 @@ export let ListaPersonas:Array<Personas> = [
         ciudad: "Valparaíso"
     },
     {
+        id: 4,
         nombre: "Pepe",
         apellido: "Grillo",
         genero: "Hombre",
